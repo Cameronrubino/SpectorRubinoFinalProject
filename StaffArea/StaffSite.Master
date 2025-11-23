@@ -1,0 +1,41 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="StaffSite.Master.cs" Inherits="StaffSiteMaster" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+ <title>Staff Administration - Rokey's Video Rentals</title>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+ <style type="text/css">
+ body{font-family:'Orbitron',monospace;background:#0f0f23;color:#00d4ff;margin:0;}
+ .navigation{width:280px;}
+ .nav-link{display:block;color:#00d4ff;text-decoration:none;padding:10px;}
+ .nav-link i{margin-right:6px;}
+ .logout-link{position:fixed;top:10px;right:10px;}
+ .main-container{display:flex;gap:20px;padding:15px;}
+ .content{flex:1;}
+ </style>
+</head>
+<body>
+ <form runat="server">
+ <asp:HyperLink ID="lnkLogout" runat="server" NavigateUrl="~/StaffLogout.aspx" CssClass="logout-link">Logout</asp:HyperLink>
+ <div class="main-container">
+ <div class="navigation">
+ <h3>Staff Tools</h3>
+ <ul class="nav-menu" style="list-style:none;padding:0;">
+ <li><asp:HyperLink ID="lnkDashboard" runat="server" NavigateUrl="~/StaffArea/Dashboard.aspx" CssClass="nav-link"><i class="fas fa-gauge"></i>Dashboard</asp:HyperLink></li>
+ <li><asp:HyperLink ID="lnkCustomers" runat="server" NavigateUrl="~/StaffArea/Customers.aspx" CssClass="nav-link"><i class="fas fa-users"></i>Customers</asp:HyperLink></li>
+ <li><asp:HyperLink ID="lnkRentals" runat="server" NavigateUrl="~/StaffArea/Rentals.aspx" CssClass="nav-link"><i class="fas fa-receipt"></i>Rentals</asp:HyperLink></li>
+ <li><asp:HyperLink ID="lnkMovies" runat="server" NavigateUrl="~/StaffArea/Movies.aspx" CssClass="nav-link"><i class="fas fa-film"></i>Movies</asp:HyperLink></li>
+ <li><asp:HyperLink ID="lnkCheckout" runat="server" NavigateUrl="~/StaffArea/Checkout.aspx" CssClass="nav-link"><i class="fas fa-shopping-cart"></i>Checkout</asp:HyperLink></li>
+ <li><asp:HyperLink ID="lnkInitDB" runat="server" NavigateUrl="~/Setup/InitializeDB.aspx" CssClass="nav-link"><i class="fas fa-database"></i>Initialize DB</asp:HyperLink></li>
+ </ul>
+ </div>
+ <div class="content">
+ <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+ </div>
+ </div>
+ </form>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CustomerSite.Master.cs" Inherits="CustomerSiteMaster" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Rokey's Video Rentals - Customer Portal</title>
+    <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+    <style type="text/css">
+        body {
+       font-family: 'Orbitron', 'Courier New', monospace;
+background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        color: #00d4ff;
+   min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+    background: linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+  padding: 20px 0;
+    text-align: center;
+      border-bottom: 3px solid #00d4ff;
+     box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+    .header-content {
+         max-width: 1200px;
+       margin: 0 auto;
+       padding: 0 20px;
+   }
+
+   .site-title {
+    font-size: 3.5em;
+     font-weight: 900;
+       font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+        text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
+     letter-spacing: 8px;
+       margin-bottom: 10px;
+  }
+
+     .site-tagline {
+       font-size: 1.2em;
+     color: #ffffff;
+ font-weight: 400;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+   .main-container {
+    display: flex;
+        min-height: calc(100vh - 200px);
+      max-width: 1400px;
+   margin: 0 auto;
+            gap: 20px;
+   padding: 20px;
+ }
+
+        .navigation {
+ width: 250px;
+   background: linear-gradient(145deg, #1e1e3f, #2d2d5f);
+            border: 2px solid #00d4ff;
+     border-radius: 10px;
+     padding: 25px;
+   box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.1);
+      height: fit-content;
+  position: sticky;
+       top: 20px;
+        }
+
+   .navigation h3 {
+   font-size: 1.4em;
+    color: #ff6b6b;
+     margin-bottom: 20px;
+      text-align: center;
+   letter-spacing: 2px;
+        text-shadow: 0 0 10px #ff6b6b;
+ border-bottom: 2px solid #ff6b6b;
+  padding-bottom: 10px;
+        }
+
+   .nav-menu {
+  list-style: none;
+            margin: 0;
+       padding: 0;
+        }
+
+   .nav-menu li {
+    margin-bottom: 12px;
+        }
+
+  .nav-link {
+   display: block;
+       color: #00d4ff;
+      text-decoration: none;
+        padding: 12px 15px;
+   background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+   border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 5px;
+     font-weight: 600;
+        letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+  .nav-link:hover {
+     background: linear-gradient(90deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.3), rgba(0, 212, 255, 0.2));
+  border-color: #00d4ff;
+transform: translateX(5px);
+ box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+   .content {
+   flex: 1;
+        background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border: 2px solid #00d4ff;
+        border-radius: 15px;
+      padding: 30px;
+         box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), inset 0 0 30px rgba(0, 212, 255, 0.05);
+        }
+
+     .footer {
+    background: linear-gradient(90deg, #1a1a2e, #16213e);
+      border-top: 2px solid #00d4ff;
+         text-align: center;
+       padding: 20px;
+  color: #4ecdc4;
+    font-weight: 600;
+      letter-spacing: 1px;
+        }
+
+  .staff-link {
+       position: fixed;
+ top: 20px;
+          right: 20px;
+  background: linear-gradient(145deg, #ff6b6b, #ff5252);
+border: 2px solid #ff6b6b;
+     color: #ffffff;
+   padding: 10px 15px;
+       border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+       text-decoration: none;
+   font-size: 12px;
+     text-transform: uppercase;
+        transition: all 0.3s ease;
+       z-index: 1000;
+        }
+
+    .staff-link:hover {
+      background: linear-gradient(145deg, #ff5252, #ff3030);
+       transform: translateY(-2px);
+ }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+     }
+     
+       .navigation {
+       width: 100%;
+       position: static;
+            }
+       
+   .site-title {
+   font-size: 2.5em;
+     letter-spacing: 4px;
+       }
+   
+  .content {
+         padding: 20px;
+      }
+        }
+    </style>
+</head>
+<body>
+ <form runat="server">
+     <a href="StaffLogin.aspx" class="staff-link">Staff Login</a>
+        
+        <div class="header">
+ <div class="header-content">
+ <h1 class="site-title">ROKEY'S VIDEO RENTALS</h1>
+    <p class="site-tagline">Browse Movies • Rent Your Favorites • Entertainment Since 1985</p>
+         </div>
+  </div>
+
+        <div class="main-container">
+     <div class="navigation">
+    <h3>BROWSE</h3>
+   <ul class="nav-menu">
+     <li>
+    <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/CustomerDefault.aspx" CssClass="nav-link">
+?? Home
+      </asp:HyperLink>
+        </li>
+   <li>
+    <asp:HyperLink ID="lnkBrowse" runat="server" NavigateUrl="~/Customer/BrowseMovies.aspx" CssClass="nav-link">
+?? Browse All Movies
+    </asp:HyperLink>
+        </li>
+     <li>
+  <asp:HyperLink ID="lnkByGenre" runat="server" NavigateUrl="~/Customer/BrowseByGenre.aspx" CssClass="nav-link">
+ ??? Browse by Genre
+      </asp:HyperLink>
+      </li>
+   <li>
+        <asp:HyperLink ID="lnkCreateAccount" runat="server" NavigateUrl="~/Customer/CreateAccount.aspx" CssClass="nav-link">
+  ?? Create Username
+     </asp:HyperLink>
+        </li>
+    <li>
+     <asp:HyperLink ID="lnkRentMovie" runat="server" NavigateUrl="~/Customer/RentMovie.aspx" CssClass="nav-link">
+?? Rent a Movie
+  </asp:HyperLink>
+        </li>
+      </ul>
+  </div>
+
+      <div class="content">
+      <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+  </div>
+
+     <div class="footer">
+       <p>&copy; <%= DateTime.Now.Year %> Rokey's Video Rentals - Your Entertainment Destination</p>
+</div>
+</form>
+</body>
+</html>
